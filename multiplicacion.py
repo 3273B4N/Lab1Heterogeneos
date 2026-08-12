@@ -3,7 +3,7 @@
 from operation_class import Operation
 
 
-class Multiplicacion(Operation):
+class Multiplication(Operation):
     """Child operation class that performs matrix multiplication."""
 
     def set_matrix(self, index: int, matrix):
@@ -13,7 +13,7 @@ class Multiplicacion(Operation):
             index: Matrix position (0 for matrix A, 1 for matrix B).
             matrix: Matrix array to store.
         """
-        self.matrices[index] = matrix
+        self.matrixes[index] = matrix
 
     def compute(self):
         """Compute the product of the stored matrices.
@@ -24,12 +24,12 @@ class Multiplicacion(Operation):
         Raises:
             ValueError: If the matrices cannot be multiplied due to incompatible dimensions.
         """
-        matriz_a = self.matrices[0]
-        matriz_b = self.matrices[1]
+        matrix_a = self.matrixes[0]
+        matrix_b = self.matrixes[1]
 
-        if matriz_a.shape[1] == matriz_b.shape[0]:
-            return matriz_a @ matriz_b
-        raise ValueError("Las dimensiones no coinciden")
+        if matrix_a.shape[1] == matrix_b.shape[0]:
+            return matrix_a @ matrix_b
+        raise ValueError("Matrixes do not match dimensions")
 
     def clear(self):
         """Clear stored matrices."""

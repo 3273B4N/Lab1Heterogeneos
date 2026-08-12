@@ -9,7 +9,7 @@ class Operation(ABC):
 
     def __init__(self):
         """Initialize the operation with empty matrix storage."""
-        self.matrices = {}
+        self.matrixes = {}
 
     @abstractmethod
     def set_matrix(self, index: int, matrix: np.ndarray):
