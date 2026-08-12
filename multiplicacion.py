@@ -33,4 +33,4 @@ class Multiplication(Operation):
 
     def clear(self):
         """Clear stored matrices."""
-        self.matrices.clear()
+        self.matrixes.clear()
