@@ -2,12 +2,12 @@
 
 import json
 import typer
-from app import Aplicacion
+from application_class import Application
 
 #TODO: reemplazar app por el nombre del archivo de la app y Aplicacion por el nombre de la clase de la aplicacion dentro del archivo de aplicacion
 
 app = typer.Typer(help="Calculador de matrices por CLI")
-aplicacion = Aplicacion()
+aplication= Application()
 
 
 def load_json(ruta: str) -> dict:
@@ -24,14 +24,14 @@ def load_json(ruta: str) -> dict:
 
 
 @app.command()
-def suma(matrix_file: str):
+def sum(matrix_file: str):
     """Execute matrix addition from JSON input.
 
     Args:
         matrix_file: Path to a JSON file containing "matrixA" and "matrixB" entries.
     """
     data = load_json(matrix_file)
-    resultado = aplicacion.ejecutar("suma", [data["matrixA"]["data"], data["matrixB"]["data"]])
+    resultado = aplication.execute("sum", [data["matrixA"]["data"], data["matrixB"]["data"]])
     print(f"El resultado de la operación es: {resultado}")
 
 
@@ -43,7 +43,7 @@ def mul(matrix_file: str):
         matrix_file: Path to a JSON file containing "matrixA" and "matrixB" entries.
     """
     data = load_json(matrix_file)
-    resultado = aplicacion.ejecutar("multiplicacion", [data["matrixA"]["data"], data["matrixB"]["data"]])
+    resultado = aplication.execute("multiplication", [data["matrixA"]["data"], data["matrixB"]["data"]])
     print(f"El resultado de la operación es: {resultado}")
 
 
@@ -55,7 +55,7 @@ def inv(matrix_file: str):
         matrix_file: Path to a JSON file containing "matrixA" data.
     """
     data = load_json(matrix_file)
-    resultado = aplicacion.ejecutar("inversa", [data["matrixA"]["data"]])
+    resultado = aplication.execute("inverse", [data["matrixA"]["data"]])
     print(f"El resultado de la operación es: {resultado}")
 
 
@@ -67,7 +67,7 @@ def det(matrix_file: str):
         matrix_file: Path to a JSON file containing "matrixA" data.
     """
     data = load_json(matrix_file)
-    resultado = aplicacion.ejecutar("determinante", [data["matrixA"]["data"]])
+    resultado = aplication.execute("determinant", [data["matrixA"]["data"]])
     print(f"El resultado de la operación es: {resultado}")
 
 
