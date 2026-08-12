@@ -1,27 +1,37 @@
-from clase_padre_Operacion import Operacion
+"""Matrix addition operation implementation."""
+
+from operation_class import Operation
 import numpy as np
 
 
-class Suma(Operacion):
-    """Clase hija que realiza la suma"""
+class Suma(Operation):
+    """Child operation class that performs matrix addition."""
 
-    def set_matrix(self, index, matrix):
-        """guarda la matriz en la posición indicada
-           es 0 para la matriz A y 1 para la matriz B"""
+    def set_matrix(self, index: int, matrix: np.ndarray):
+        """Store a matrix in the given position.
+
+        Args:
+            index: Matrix position (0 for matrix A, 1 for matrix B).
+            matrix: Matrix array to store.
+        """
         self.matrices[index] = matrix
 
     def compute(self):
-        """Ejecuta la operación suma sobre las matrices A y B
-            Si las matrices A y B tienen las mismas dimensiones,
-            se realiza la suma"""
+        """Compute the sum of the stored matrices.
+
+        Returns:
+            The matrix result of A + B.
+
+        Raises:
+            ValueError: If the two matrices do not have identical dimensions.
+        """
         matriz_a = self.matrices[0]
-        matriz_b = self. matrices[1]
+        matriz_b = self.matrices[1]
 
         if matriz_a.shape == matriz_b.shape:
-            suma = matriz_a + matriz_b
-        else:
-            raise ValueError("Las matrices no tienen las misma dimensiones")
-        return suma
+            return matriz_a + matriz_b
+        raise ValueError("Las matrices no tienen las misma dimensiones")
 
-    def Clear(self):
+    def clear(self):
+        """Clear stored matrices."""
         self.matrices.clear()

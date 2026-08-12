@@ -1,31 +1,36 @@
-from clase_padre_Operacion import Operacion
+"""Matrix multiplication operation implementation."""
+
+from operation_class import Operation
 
 
-class Multiplicacion(Operacion):
-    """Clase hija que realiza la multiplicación"""
+class Multiplicacion(Operation):
+    """Child operation class that performs matrix multiplication."""
 
-    def set_matrix(self, index, matrix):
-        """guarda la matriz en la posición indicada
-           es 0 para la matriz A y 1 para la matriz B"""
+    def set_matrix(self, index: int, matrix):
+        """Store a matrix in the given position.
+
+        Args:
+            index: Matrix position (0 for matrix A, 1 for matrix B).
+            matrix: Matrix array to store.
+        """
         self.matrices[index] = matrix
 
     def compute(self):
-        """
-        Ejecuta la operación multiplicación sobre las
-        matrices A y B
-        Si las dimensiones de las columnas de A y las filas de B
-        son iguales, la multiplicación se realiza
+        """Compute the product of the stored matrices.
+
+        Returns:
+            The matrix result of A @ B.
+
+        Raises:
+            ValueError: If the matrices cannot be multiplied due to incompatible dimensions.
         """
         matriz_a = self.matrices[0]
-        matriz_b = self. matrices[1]
+        matriz_b = self.matrices[1]
 
         if matriz_a.shape[1] == matriz_b.shape[0]:
-            suma = matriz_a @ matriz_b
-        else:
-            raise ValueError(
-                "Las dimensiones no coinciden")
-        return suma
+            return matriz_a @ matriz_b
+        raise ValueError("Las dimensiones no coinciden")
 
-    def Clear(self):
-        """Vacía el dicccionario self.matrices"""
+    def clear(self):
+        """Clear stored matrices."""
         self.matrices.clear()
