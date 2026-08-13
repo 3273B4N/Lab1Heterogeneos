@@ -22,7 +22,8 @@ class Multiplication(Operation):
             The matrix result of A @ B.
 
         Raises:
-            ValueError: If the matrices cannot be multiplied due to incompatible dimensions.
+            ValueError: If the matrices cannot
+            be multiplied due to incompatible dimensions.
         """
         matrix_a = self.matrixes[0]
         matrix_b = self.matrixes[1]

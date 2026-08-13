@@ -1,6 +1,7 @@
 from operation_class import Operation
 import numpy as np
 
+
 class Determinant(Operation):
     """Class to compute the determinant of a matrix"""
 
@@ -17,10 +18,10 @@ class Determinant(Operation):
         returns the result of the operation"""
         if not self.matrixes:
             raise ValueError("No matrices have been set.")
-        
+
         if 0 not in self.matrixes:
             raise ValueError("Matrix at index 0 has not been set.")
-    
+
         # Assuming we want to compute the determinant of the first matrix set
         first_matrix = self.matrixes[0]
 
