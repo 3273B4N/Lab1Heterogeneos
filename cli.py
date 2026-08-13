@@ -4,10 +4,12 @@ import json
 import typer
 from application_class import Application
 
-#TODO: reemplazar app por el nombre del archivo de la app y Aplicacion por el nombre de la clase de la aplicacion dentro del archivo de aplicacion
+# TODO: reemplazar app por el nombre del archivo de la app y
+# Aplicacion por el nombre de la clase de la aplicacion
+# dentro del archivo de aplicacion
 
 app = typer.Typer(help="Calculador de matrices por CLI")
-aplication= Application()
+aplication = Application()
 
 
 def load_json(ruta: str) -> dict:
@@ -28,10 +30,12 @@ def sum(matrix_file: str):
     """Execute matrix addition from JSON input.
 
     Args:
-        matrix_file: Path to a JSON file containing "matrixA" and "matrixB" entries.
+        matrix_file: Path to a JSON file containing
+        "matrixA" and "matrixB" entries.
     """
     data = load_json(matrix_file)
-    resultado = aplication.execute("sum", [data["matrixA"]["data"], data["matrixB"]["data"]])
+    resultado = aplication.execute("sum", [data["matrixA"]["data"],
+                                           data["matrixB"]["data"]])
     print(f"El resultado de la operación es: {resultado}")
 
 
@@ -40,10 +44,12 @@ def mul(matrix_file: str):
     """Execute matrix multiplication from JSON input.
 
     Args:
-        matrix_file: Path to a JSON file containing "matrixA" and "matrixB" entries.
+        matrix_file: Path to a JSON file containing
+        "matrixA" and "matrixB" entries.
     """
     data = load_json(matrix_file)
-    resultado = aplication.execute("multiplication", [data["matrixA"]["data"], data["matrixB"]["data"]])
+    resultado = aplication.execute("multiplication", [data["matrixA"]["data"],
+                                                      data["matrixB"]["data"]])
     print(f"El resultado de la operación es: {resultado}")
 
 

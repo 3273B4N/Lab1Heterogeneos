@@ -11,13 +11,13 @@ class Application:
     """Represents the matrix calculator app
 
     Contains the supported operations and
-    coordinates the execution on each operation: 
+    coordinates the execution on each operation:
     recives the operation name and matrixes from
     the CLI interface and uses the right operations
-    Returns the result of the operation 
-    
+    Returns the result of the operation
+
     Attributes:
-        operations (dict[str, Operation]): 
+        operations (dict[str, Operation]):
         Maps the operation name to its correct operation instance.
     """
 
@@ -36,7 +36,7 @@ class Application:
         Args:
             operation_name: Name of the operation to execute,
             must exist as a key in self.operations
-            matrixes: List of matrixes, in order acording to 
+            matrixes: List of matrixes, in order acording to
             the index
 
         Returns:
