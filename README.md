@@ -22,6 +22,87 @@ Interaction with the calculator takes place via a command-line interface (CLI) b
 
 ## Installation instructions
 
+### Requirements
+
+- Python installed
+- [UV] installed as the dependency management system
+
+### Installation steps
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd <Lab1Heterogeneos>
+``` 
+2. Move to the branch called develop
+
+```bash
+git checkout develop
+```
+
+3. Install the project dependencies with UV:
+
+```bash
+uv sync
+```
+This command automatically creates a virtual environment and installs all necessary dependencies as defined in `pyproject.toml` and `uv.lock`.
+
+4. Verify that the installation was successful:
+
+```bash
+uv run python cli.py --help
+```
+If the help displaying the available operations appears, the installation
+completed successfully.
+
 ## Instructions for use
+
+The calculator runs from the command line using Typer, with each operation invoked as a separate command that specifies the JSON file containing the matrices to be processed.
+
+### View available commands
+
+```bash
+uv run python cli.py --help
+```
+
+### Available commands
+
+| Operation | Command |
+|---|---|
+| Addition | `sum` |
+| Multiplication | `mul` |
+| Investment | `inv` |
+| Determinant | `det` |
+
+### Syntax for using the calculator
+
+```bash
+uv run python cli.py <command> <file-name.json>
+```
+
+### Input JSON file format
+
+```json
+{
+  "matrixA": {
+    "rows": 2,
+    "cols": 3,
+    "data": [
+      [1.25, 2.50, 3.75],
+      [4.00, 5.10, 6.20]
+    ]
+  },
+  "matrixB": {
+    "rows": 3,
+    "cols": 2,
+    "data": [
+      [10.0, 11.0],
+      [12.0, 13.0],
+      [14.0, 15.0]
+    ]
+  }
+}
+```
 
 ## Examples of how to use it
