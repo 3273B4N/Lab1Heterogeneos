@@ -106,3 +106,133 @@ uv run python cli.py <command> <file-name.json>
 ```
 
 ## Examples of how to use it
+
+### Matrix addition
+
+'matrixesSameDim.json' file:
+
+```json
+{
+  "matrixA": {
+    "rows": 2,
+    "cols": 3,
+    "data": [
+      [1.25, 2.50, 3.75],
+      [4.00, 5.10, 6.20]
+    ]
+  },
+  "matrixB": {
+    "rows": 2,
+    "cols": 3,
+    "data": [
+      [10.0, 11.0, 12.0],
+      [13.0, 14.0, 15.0]
+    ]
+  }
+}
+```
+Command:
+
+```bash
+uv run python cli.py sum 'matrixesSameDim.json'
+```
+Result:
+
+```
+[[11.25 13.5  15.75]
+[17.   19.1  21.2 ]]
+```
+
+### Matrix multiplication
+
+'matrixesDiffDim.json' file:
+
+```json
+{
+  "matrixA": {
+    "rows": 2,
+    "cols": 3,
+    "data": [
+      [1.25, 2.50, 3.75],
+      [4.00, 5.10, 6.20]
+    ]
+  },
+  "matrixB": {
+    "rows": 3,
+    "cols": 2,
+    "data": [
+      [10.0, 11.0],
+      [12.0, 13.0],
+      [14.0, 15.0]
+    ]
+  }
+}
+```
+Command:
+
+```bash
+uv run python cli.py mul 'matrixesSameDim.json'
+```
+Result:
+
+```
+[[ 95.  102.5]
+[188.  203.3]]
+```
+
+### Inverse of a matrix
+
+'singleMatrix.json' file:
+
+```json
+{
+  "matrixA": {
+    "rows": 2,
+    "cols": 2,
+    "data": [
+      [4.0, 3.0],
+      [6.0, 3.0]
+    ]
+  }
+}
+
+```
+Command:
+
+```bash
+uv run python cli.py inv 'matrixesSameDim.json'
+```
+Result:
+
+```
+[[-0.5         0.5       ]
+[ 1.         -0.66666667]]
+```
+
+### Determinant of a matrix
+
+'singleMatrix.json' file:
+
+```json
+{
+  "matrixA": {
+    "rows": 2,
+    "cols": 2,
+    "data": [
+      [4.0, 3.0],
+      [6.0, 3.0]
+    ]
+  }
+}
+
+```
+Command:
+
+```bash
+uv run python cli.py det 'matrixesSameDim.json'
+```
+Result:
+
+```
+-6.0
+```
