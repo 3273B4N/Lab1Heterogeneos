@@ -20,6 +20,8 @@ Interaction with the calculator takes place via a command-line interface (CLI) b
 
 ## Design diagram
 
+![Desing diagram](Lab1Heterogeneos.drawio(2).png)
+
 ## Installation instructions
 
 ### Requirements
